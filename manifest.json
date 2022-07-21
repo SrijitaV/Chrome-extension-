@@ -1,0 +1,12 @@
+{
+    "manifest_version":2,
+    "name":"Project Launcher",
+    "Description": "Quick Launch Project Media",
+    "version":"1.0.0",
+    "icons":{"128": "logo128.png"},
+    "browser_action":{
+        "default_icon":"logo19.png",
+        "default_popup":"popup.html"
+    },
+    "permisssions":["acriveTab"]
+}
