@@ -209,12 +209,16 @@ chrome.storage.local
 
 ```
 Problem
-├── Metadata
-├── Notes
-├── Tags
-├── Revision
-├── Bookmark
-└── Flashcards
+   │
+   ├──── Notes
+
+   ├──── Tags
+
+   ├──── Bookmark
+
+   ├──── Revision Status
+
+   └──── Flashcards
 ```
 
 One Problem can have:
