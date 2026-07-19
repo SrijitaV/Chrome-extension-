@@ -6,5 +6,19 @@
 
   "action": {
     "default_title": "LeetPilot"
-  }
+  },
+
+  "background": {
+    "service_worker": "src/background/background.ts",
+    "type": "module"
+  },
+
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+
+  "host_permissions": [
+    "https://leetcode.com/*"
+  ]
 }
