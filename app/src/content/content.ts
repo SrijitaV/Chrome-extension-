@@ -1,1 +1,1 @@
-console.log("📄 LeetPilot Content Script Loaded");
+console.log("🚀 LeetPilot Content Script Loaded");

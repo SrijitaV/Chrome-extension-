@@ -1,1 +1,1 @@
-console.log("🚀 LeetPilot Background Service Worker Started");
+console.log("🚀 Background Worker Started");
