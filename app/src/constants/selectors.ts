@@ -1,4 +1,4 @@
 export const SELECTORS = {
-  title: '[data-cy="question-title"]',
-  difficulty: '[diff]',
+  title: 'a[href^="/problems/"]',
+  difficulty: ".text-difficulty-easy, .text-difficulty-medium, .text-difficulty-hard",
 };
