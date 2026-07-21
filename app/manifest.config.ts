@@ -10,6 +10,7 @@ const manifest: ManifestV3Export = {
   description: "Learn. Organize. Improve.",
 
   action: {
+    default_popup: "index.html",
     default_title: "LeetPilot",
   },
 
