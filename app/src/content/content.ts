@@ -1,9 +1,8 @@
 import { parseProblem } from "../services/parser/problemParser";
-
-console.clear();
-
-console.log("🚀 LeetPilot Started");
+import { sendProblem } from "../services/messaging/runtime";
 
 const problem = parseProblem();
 
 console.table(problem);
+
+sendProblem(problem);

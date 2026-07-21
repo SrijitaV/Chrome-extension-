@@ -11,8 +11,9 @@ export async function saveProblem(problem: LeetCodeProblem) {
 export async function getProblem(): Promise<LeetCodeProblem | null> {
   const result = await chrome.storage.local.get(CURRENT_PROBLEM_KEY);
 
-  return (result[CURRENT_PROBLEM_KEY] as LeetCodeProblem | undefined) ?? null;
+  return (result[CURRENT_PROBLEM_KEY] as LeetCodeProblem) ?? null;
 }
+
 export async function clearProblem() {
   await chrome.storage.local.remove(CURRENT_PROBLEM_KEY);
 }

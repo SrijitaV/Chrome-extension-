@@ -1,18 +1,15 @@
 import { useEffect, useState } from "react";
-import type { LeetCodeProblem } from "../types/leetcode";
 import { getProblem } from "../services/storage/problemStorage";
+import type { LeetCodeProblem } from "../types/leetcode";
 
 function Popup() {
   const [problem, setProblem] = useState<LeetCodeProblem | null>(null);
 
   useEffect(() => {
-    async function loadProblem() {
-      const currentProblem = await getProblem();
-      setProblem(currentProblem);
-    }
 
-    loadProblem();
-  }, []);
+    getProblem().then(setProblem);
+
+  }, []); 
 
   return (
     <main className="min-w-[360px] p-5">

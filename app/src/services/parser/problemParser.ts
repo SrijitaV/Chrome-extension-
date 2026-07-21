@@ -1,19 +1,21 @@
-import { SELECTORS } from "../../constants/selectors";
 import type { LeetCodeProblem } from "../../types/leetcode";
 
 export function parseProblem(): LeetCodeProblem {
+  const links = [
+    ...document.querySelectorAll<HTMLAnchorElement>('a[href^="/problems/"]'),
+  ];
+
   const rawTitle =
-    document.querySelector(SELECTORS.title)?.textContent?.trim() ??
-    "Unknown";
+    links.find((link) => /^\d+\.\s/.test(link.textContent?.trim() ?? ""))
+      ?.textContent?.trim() ?? "Unknown";
 
   const difficulty =
-    document.querySelector(SELECTORS.difficulty)?.textContent?.trim() ??
-    "Unknown";
-
-  const title = rawTitle.replace(/^\d+\.\s*/, "");
+    document.querySelector(
+      ".text-difficulty-easy, .text-difficulty-medium, .text-difficulty-hard"
+    )?.textContent?.trim() ?? "Unknown";
 
   return {
-    title,
+    title: rawTitle.replace(/^\d+\.\s*/, ""),
     difficulty,
     url: window.location.href,
   };
