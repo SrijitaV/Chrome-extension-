@@ -1,8 +1,20 @@
 import { parseProblem } from "../services/parser/problemParser";
 import { sendProblem } from "../services/messaging/runtime";
 
-const problem = parseProblem();
+let previousUrl = "";
 
-console.table(problem);
+function detectProblem() {
+  if (window.location.href === previousUrl) return;
 
-sendProblem(problem);
+  previousUrl = window.location.href;
+
+  const problem = parseProblem();
+
+  console.table(problem);
+
+  sendProblem(problem);
+}
+
+detectProblem();
+
+setInterval(detectProblem, 1000);
