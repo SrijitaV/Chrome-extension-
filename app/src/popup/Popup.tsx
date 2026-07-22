@@ -29,24 +29,16 @@ function Popup() {
       const savedBookmarks = await getBookmarks();
       setBookmarks(savedBookmarks);
 
-      if (!currentProblem) {
-        setBookmarked(false);
-        setNote("");
-        return;
-      }
+      if (!currentProblem) return;
 
-      setBookmarked(await isBookmarked(currentProblem.url));
+      const bookmarked = await isBookmarked(currentProblem.url);
+      setBookmarked(bookmarked);
 
-      setNote(await getNote(currentProblem.url));
+      const savedNote = await getNote(currentProblem.url);
+      setNote(savedNote);
     }
 
     loadProblem();
-
-    chrome.storage.onChanged.addListener(loadProblem);
-
-    return () => {
-      chrome.storage.onChanged.removeListener(loadProblem);
-    };
   }, []);
 
   async function handleBookmark() {
